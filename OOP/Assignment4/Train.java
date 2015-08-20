@@ -1,5 +1,5 @@
 /**
- * @author Arushi ---IT IS A SUPER CLASS FOR PASSENGER AND GOODS TRAINS
+ * @author Priyamvada ---IT IS A SUPER CLASS FOR PASSENGER AND GOODS TRAINS
  * 
  */
 public class Train {

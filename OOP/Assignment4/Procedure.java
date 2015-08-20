@@ -1,11 +1,12 @@
 import java.util.Iterator;
-import java.util.Scanner;
 
-//class to display traveling chart information
+/**
+ * @author Priyamvada--- It is a class containing all the procedures to to do
+ * 
+ */
 public class Procedure {
 
-	// function to display train chart
-	public void displayChart(int choice) {
+	public void displayChart(int choice) { // To display the chart of train
 
 		if (choice == 1) {
 			System.out.println("---CURRENT TRAVELLING CHART");
@@ -41,8 +42,7 @@ public class Procedure {
 
 	}
 
-	// function to sort trains according to duration
-	public void sortChart() {
+	public void sortChart() { // sorting the chart according to duration
 		PassengerTrain temp;
 		GoodsTrain temp1;
 
@@ -74,65 +74,76 @@ public class Procedure {
 
 	}
 
-	// function to return updated amounts
-	public double printAvailableTrains(String startPoint, String endPoint,
-			int type) {
-		Scanner sc = new Scanner(System.in);
-		int temp1 = 0;
-		int temp2 = 0;
-		double amount = 0;
+	public void availableTrains(int type, String source, String destination) { // Checking
+																				// for
+																				// availability
+																				// of
+																				// train
+
+		int i = 0, temp = 0;
+
 		if (type == 1) {
+
 			Iterator<PassengerTrain> itr = TrainDetails.passengerList
-					.iterator();
+					.iterator();// For passenger train
+
 			while (itr.hasNext()) {
-				PassengerTrain object1 = itr.next();
-				if ((object1.fromPlace.equalsIgnoreCase(startPoint))
-						&& (object1.toPlace.equalsIgnoreCase(endPoint))) {
-					System.out.println("Enter no of seats");
-					int seats = sc.nextInt();
-					if (seats < object1.seats) {
-						amount = seats * object1.price;
-						int newSeats = object1.seats - seats;
-						object1.setSeats(newSeats);
-					} else {
-						System.out.println("seats not available");
+				PassengerTrain passenger = itr.next();
+
+				if (source.equalsIgnoreCase(passenger.getFromPlace())
+						&& destination.equalsIgnoreCase(passenger.getToPlace())) {
+					temp = temp + 1;
+					System.out.println(temp);
+
+					if (i == 0) {
+						System.out
+								.println("TRAINID		SOURCE 		DESTINATION	DURATION	SEATS	       PRICE");
+						i++;
 					}
-
-				} else {
-					temp1 = temp1 + 1;
+					System.out.println(passenger.getTrainId() + "		 "
+							+ passenger.getFromPlace() + "		 "
+							+ passenger.getToPlace() + " 		"
+							+ passenger.getDuration() + " 		"
+							+ passenger.getSeats() + " 		"
+							+ passenger.getPrice());
 
 				}
-				if (temp1 == TrainDetails.passengerList.size()) {
-					System.out.println("no such train");
-				}
 
-			}
-
-		}
-		if (type == 2) {
-			Iterator<GoodsTrain> itr1 = TrainDetails.goodsList.iterator();
-			while (itr1.hasNext()) {
-				GoodsTrain object1 = itr1.next();
-				if ((object1.getFromPlace().equalsIgnoreCase(startPoint))
-						&& (object1.getToPlace().equalsIgnoreCase(endPoint))) {
-					System.out.println("Enter weight");
-					double weight = sc.nextDouble();
-					if (weight < object1.weight) {
-						double availWeight = object1.weight - weight;
-						object1.setWeight(availWeight);
-						amount = weight * object1.price;
-					} else {
-						System.out.println("Weight not available");
-					}
-				} else {
-					temp2 = temp2 + 1;
-				}
-				if (temp2 == TrainDetails.goodsList.size()) {
-					System.out.println("No such train");
+				if (temp == 0) {
+					System.out.println("No such trains.Try Another");
+					TrainMenu menu1 = new TrainMenu();
+					menu1.menu();
 				}
 
 			}
 		}
-		return amount;
+
+		else {// For goods train
+			Iterator<GoodsTrain> itr = TrainDetails.goodsList.iterator();
+			while (itr.hasNext()) {
+				GoodsTrain goods = itr.next();
+				if (source.equalsIgnoreCase(goods.getFromPlace())
+						&& destination.equalsIgnoreCase(goods.getToPlace())) {
+					temp = temp + 1;
+					if (i == 0) {
+						System.out
+								.println("Train Number 	SOURCE 		DESTINATION		TIME		WEIGHT		PRICE");
+						i++;
+					}
+					System.out.println(goods.getTrainId() + "		 "
+							+ goods.getFromPlace() + "		 " + goods.getToPlace()
+							+ " 		" + goods.getDuration() + " 		"
+							+ goods.getWeight() + " 		" + goods.getPrice());
+
+				}
+
+				if (temp == 0) {
+					System.out.println("No such trains.Try another");
+					TrainMenu menu1 = new TrainMenu();
+					menu1.menu();
+				}
+			}
+		}
 	}
+
 }

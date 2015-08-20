@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * @author Priyamvada--- THIS CLASS IS USED FOR FATCHING DATA FROM A FILE AND
  *         STORING IT IN A LIST ACCORDING TO ITS DATA
- *
+ * 
  */
 public class TrainDetails {
 
@@ -24,9 +24,11 @@ public class TrainDetails {
 		BufferedReader br;
 		try {
 			// Reading the questions stored in the file
-			br = new BufferedReader(new FileReader("E://TrainInfo.txt"));// READING
-																			// FROM
-																			// FILE
+			br = new BufferedReader(
+					new FileReader(
+							"E:/My-Desktop/workspace/TrainManagement/src/TrainInfo.txt"));// READING
+																							// FROM
+																							// FILE
 			String line = " ";
 			String[] trainDetails;
 			while ((line = br.readLine()) != null) {

@@ -1,3 +1,7 @@
+/**
+ * @author Priyamvada class for showing all menus
+ * 
+ */
 public class MenuList {
 
 	public void displayMenu() {
