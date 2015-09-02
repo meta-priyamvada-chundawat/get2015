@@ -5,7 +5,7 @@ public class HashMap {
       HashEntry[] room;
  
       HashMap() {
-            room = new HashEntry[No_Of_Rooms];
+            room = new HashDefinition[No_Of_Rooms];
             for (int i = 0; i < No_Of_Rooms; i++){
                   room[i] = null;
            
