@@ -1,0 +1,35 @@
+//Binary search function to search elements and use loop invariants
+public class SearchFunction {
+	int binarySearch(int x, int start, int end, int arr[]) {
+		int mid;
+		// Loop Invariant 1. start value is always less than end value
+		while (start <= end) {
+			mid = (start + end) / 2;
+			if (x == arr[mid]) {
+				System.out.println("Number Found");
+				// Loop Invariant 2. position of element is returned
+				return mid;
+			} else if (x > arr[mid]) {
+				return (binarySearch(x, mid + 1, end, arr));
+			} else {
+				return (binarySearch(x, start, mid - 1, arr));
+			}
+		}
+		return -1;
+	}
+
+	//Function to find the left most occurrence
+	int leftOccurrence(int x, int left, int arr[]) {
+		while (left > 0 && arr[left - 1] == x)
+			left--;
+		return left;
+	}
+
+	//Function to find the right most occurrence
+	int RightOccurrence(int x, int right, int arr[]) {
+		while (right < arr.length-1 && arr[right + 1] == x)
+			right++;
+		return right;
+	}
+
+}
