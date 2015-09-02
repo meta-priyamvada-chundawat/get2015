@@ -1,0 +1,36 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+//Class to search an element using binary search
+public class BinarySearch {
+	public static void main(String args[]) {
+		int arr[] = new int[20];
+		SearchFunction function = new SearchFunction();
+		Scanner scan = new Scanner(System.in);
+		int noOfElements;
+		int value;
+		// Input number of elements from user
+		System.out.println("Enter the number of elements");
+		noOfElements = scan.nextInt();
+		// Input elements from user
+		for (int i = 0; i < noOfElements; i++) {
+			arr[i] = scan.nextInt();
+		}
+		// Input element to be searched
+		System.out.println("Enter the element to be searched");
+		value = scan.nextInt();
+		// Calling Binary Search function
+		int index = function.binarySearch(value, 0, noOfElements, arr);
+		if (index == -1) {
+			System.out.println("element does not exist");
+		} else {
+			// Storing left most occurrence
+			int left = function.leftOccurrence(value, index, arr);
+			// Storing right most occurrence
+			int right = function.RightOccurrence(value, index, arr);
+			System.out.println("left occurrence of" + value + "is " + left);
+			System.out.println("right occurrence of" + value + "is " + right);
+		}
+		scan.close();
+	}// End of function
+}// End of class
