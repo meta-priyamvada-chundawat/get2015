@@ -1,0 +1,66 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class SearchFunctionTest {
+	SearchFunction function = new SearchFunction();
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	// Positive test case that finds left most and right most occurrence
+	public void testCase1() {
+		int arr[] = { 1, 1, 1, 2, 3 };
+		int index = function.binarySearch(1, 0, 4, arr);
+		int left = function.leftOccurrence(1, index, arr);
+		int right = function.RightOccurrence(1, index, arr);
+		assertEquals(left, 0);
+		assertEquals(right, 2);
+	}
+
+	@Test
+	// Positive test case that returns -1 if element does not exist
+	public void testCase2() {
+		int arr[] = { 1, 2, 3, 4, 5 };
+		int index = function.binarySearch(6, 0, 4, arr);
+		assertEquals(index, -1);
+	}
+
+	@Test
+	// Positive test case that returns -1 if array does not exist
+	public void testCase3() {
+		int arr[] = new int[5];
+		int index = function.binarySearch(2, 0, 4, arr);
+		assertEquals(index, -1);
+	}
+
+	 @Test 
+	  // Negative test case for binary search public void testCase4()
+	 public void testCase4()
+	  {
+	  int arr[] = { 1, 1, 1, 1, 1 }; 
+	  int index = function.binarySearch(1, 0, 5, arr); 
+	  int left = function.leftOccurrence(1, index, arr); 
+	  int right = function.RightOccurrence(1, index, arr); 
+	  assertNotEquals(left, 1);
+	  assertNotEquals(right, 3); 
+	  }
+	 
