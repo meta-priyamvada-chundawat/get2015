@@ -1,7 +1,7 @@
 // Class to perform Linear sorting
 public class LinearSort {
 	public int[] linearSort(int arr[], int length) {
-		if (length <= 3)
+		if (length <= 10)
 			// Calling countSort function when number of elements is less than
 			// 10
 			arr = countSorting(arr);
