@@ -2,10 +2,10 @@
 public class HashMap {
       private final static int No_Of_Rooms = 11;
  int count=0;
-      HashEntry[] room;
+      HashDefinition[] room;
  
       HashMap() {
-            room = new HashEntry[No_Of_Rooms];
+            room = new HashDefinition[No_Of_Rooms];
             for (int i = 0; i < No_Of_Rooms; i++){
                   room[i] = null;
            
