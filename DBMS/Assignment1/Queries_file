@@ -1,0 +1,123 @@
+INSERT INTO members (member_nm,addressline1,addressline2,category )
+VALUES( "pragati","420","neemuch",'f');
+INSERT INTO members (member_nm,addressline1,addressline2,category )
+VALUES( "arushi","21","jaipur",'f');
+INSERT INTO members (member_nm,addressline1,addressline2,category )
+VALUES( "sumitra","34","chittor",'f');
+INSERT INTO members (member_nm,addressline1,addressline2,category )
+VALUES( "deepali","47","neemuch",'f');
+INSERT INTO members (member_nm,addressline1,addressline2,category )
+VALUES( "manju","75","neemuch",'f');
+
+INSERT INTO subjects (subject_nm)
+VALUES("Fiction Novel");
+INSERT INTO subjects (subject_nm)
+VALUES("Non-Fiction Novel");
+INSERT INTO subjects (subject_nm)
+VALUES("Business");
+INSERT INTO subjects (subject_nm)
+VALUES("Competitive Success");
+INSERT INTO subjects (subject_nm)
+VALUES("Technology");
+
+INSERT INTO publishers (publisher_nm)
+VALUES("New Moon Books");
+INSERT INTO publishers (publisher_nm)
+VALUES("Technology");
+INSERT INTO publishers (publisher_nm)
+VALUES("Scootney Books");
+INSERT INTO publishers (publisher_nm)
+VALUES("Darshan");
+INSERT INTO publishers (publisher_nm)
+VALUES("Five Publishing");
+
+INSERT INTO authors (author_nm)
+VALUES("White Johnson");
+INSERT INTO authors (author_nm)
+VALUES("Dull Ann");
+INSERT INTO authors (author_nm)
+VALUES("Groon Marjorie");
+INSERT INTO authors (author_nm)
+VALUES("Branath Abraham");
+INSERT INTO authors (author_nm)
+VALUES("Smith Meander");
+
+
+INSERT INTO titles (title_nm,subject_id,publisher_id)
+VALUES("DBMS",(SELECT subject_id FROM subjects where subject_nm='Technology'),
+(SELECT publisher_id FROM publishers where publisher_nm='Scootney Books'));
+
+INSERT INTO titles (title_nm,subject_id,publisher_id)
+VALUES("Operating System",(SELECT subject_id FROM subjects where subject_nm='Technology'),
+(SELECT publisher_id FROM publishers where publisher_nm='Technology'));
+
+INSERT INTO titles (title_nm,subject_id,publisher_id)
+VALUES("Ansi C",(SELECT subject_id FROM subjects where subject_nm='Technology'),
+(SELECT publisher_id FROM publishers where publisher_nm='Technology'));
+
+INSERT INTO titles (title_nm,subject_id,publisher_id)
+VALUES("The PRESENT",(SELECT subject_id FROM subjects where subject_nm='Technology'),
+(SELECT publisher_id FROM publishers where publisher_nm='New Moon Books'));
+
+INSERT INTO titles (title_nm,subject_id,publisher_id)
+VALUES("PAPER TOWN",(SELECT subject_id FROM subjects where subject_nm='Technology'),
+(SELECT publisher_id FROM publishers where publisher_nm='Five Publishing'));
+
+INSERT INTO books (title_id,purchase_dt,price,status)
+VALUES((SELECT title_id FROM titles where title_nm='Ansi C'),NOW(),2000,1);
+
+INSERT INTO books (title_id,purchase_dt,price,status)
+VALUES((SELECT title_id FROM titles where title_nm='Operating System'),NOW(),4000,0);
+
+INSERT INTO books (title_id,purchase_dt,price,status)
+VALUES((SELECT title_id FROM titles where title_nm='The PRESENT'),NOW(),8000,1);
+
+INSERT INTO books (title_id,purchase_dt,price,status)
+VALUES((SELECT title_id FROM titles where title_nm='PAPER TOWN'),NOW(),900,0);
+
+INSERT INTO books (title_id,purchase_dt,price,status)
+VALUES((SELECT title_id FROM titles where title_nm='DBMS'),NOW(),3000,0);
+
+
+INSERT INTO title_author (title_id,author_id)
+VALUES((SELECT title_id FROM titles where title_nm='Ansi C'),(SELECT author_id FROM authors where author_nm='Dull Ann'));
+
+INSERT INTO book_issue (accession_no,member_id)
+VALUES((SELECT accession_no FROM books where title_id=ALL(SELECT title_id FROM titles where title_nm='Ansi C')),
+(SELECT member_id FROM members where member_nm='pragati'));
+
+
+INSERT INTO book_return(return_dt,issue_dt,accession_no,member_id)
+VALUES((SELECT due_dt from book_issue where member_id =1),
+(SELECT issue_dt from book_issue where member_id=1),
+(SELECT accession_no FROM book_issue where member_id=1),1);
+SET SQL_SAFE_UPDATES=0;
+UPDATE members SET addressline2='Jaipur' where member_id=member_id ;
+
+UPDATE members SET addressline1='EPIP, Sitapura' where category='f' ;
+
+Truncate table publishers;
+
+SET @publisher1 = 'New Moon Books';
+INSERT INTO publishers (publisher_nm)
+VALUES(@publisher1);
+
+SET @publisher2 = 'Technology';
+INSERT INTO publishers (publisher_nm)
+VALUES(@publisher2);
+
+SET @publisher3 = 'Scootney Books';
+INSERT INTO publishers (publisher_nm)
+VALUES(@publisher3);
+
+SET @publisher4 = 'Darshan';
+INSERT INTO publishers (publisher_nm)
+VALUES(@publisher4);
+
+SET @publisher5 = 'Five Publishing';
+INSERT INTO publishers (publisher_nm)
+VALUES(@publisher5);
+
+ALTER TABLE titles
+DROP FOREIGN KEY publisher_id_first;
+DELETE FROM titles WHERE publisher_id=1;
