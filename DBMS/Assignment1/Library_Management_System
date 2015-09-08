@@ -26,8 +26,8 @@ publisher_id INT,
 FOREIGN KEY(subject_id) REFERENCES subjects(subject_id),
 CONSTRAINT publisher_id_first
 FOREIGN KEY(publisher_id)REFERENCES publishers(publisher_id)
-ON DELETE CASCADE);
-
+ON DELETE CASCADE
+);
 
 CREATE TABLE title_author(
 title_id INT,
@@ -42,7 +42,7 @@ title_id INT,
 purchase_dt DATE,
 price INT,
 status INT,
-FOREIGN KEY(title_id) REFERENCES titles(title_id)
+FOREIGN KEY(title_id) REFERENCES titles(title_id) ON DELETE CASCADE
 );
 
 CREATE TABLE book_issue(
@@ -110,7 +110,3 @@ ADD CONSTRAINT member_id_second
 FOREIGN KEY (member_id)
 REFERENCES members(member_id);
 
-ALTER TABLE titles
-DROP FOREIGN KEY publisher_id_first;
-
-Truncate table publishers;
