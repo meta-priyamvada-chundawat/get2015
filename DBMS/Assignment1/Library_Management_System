@@ -1,4 +1,7 @@
+/* Using database database_management */
 USE database_management;
+
+/* creating table members */
 CREATE TABLE members(
 member_id INT PRIMARY KEY AUTO_INCREMENT,
 member_nm VARCHAR(20),
@@ -6,18 +9,22 @@ addressline1 VARCHAR(20),
 addressline2 VARCHAR(20),
 category CHAR);
 
+/* creating table authors */
 CREATE TABLE authors(
 author_id INT PRIMARY KEY AUTO_INCREMENT,
 author_nm VARCHAR(20));
 
+/* creating table publishers */
 CREATE TABLE publishers(
 publisher_id INT PRIMARY KEY AUTO_INCREMENT,
 publisher_nm VARCHAR(20));
 
+/* creating table subjects */
 CREATE TABLE subjects(
 subject_id INT PRIMARY KEY AUTO_INCREMENT,
 subject_nm VARCHAR(20));
 
+/* creating table titles */
 CREATE TABLE titles(
 title_id INT PRIMARY KEY AUTO_INCREMENT,
 title_nm VARCHAR(20),
@@ -29,6 +36,7 @@ FOREIGN KEY(publisher_id)REFERENCES publishers(publisher_id)
 ON DELETE CASCADE
 );
 
+/* creating table title_author */
 CREATE TABLE title_author(
 title_id INT,
 author_id INT,
@@ -36,6 +44,7 @@ PRIMARY KEY(title_id,author_id),
 FOREIGN KEY(title_id) REFERENCES titles(title_id),
 FOREIGN KEY(author_id) REFERENCES authors(author_id));
 
+/* creating table books */
 CREATE TABLE books(
 accession_no INT PRIMARY KEY AUTO_INCREMENT,
 title_id INT,
@@ -45,6 +54,7 @@ status INT,
 FOREIGN KEY(title_id) REFERENCES titles(title_id) ON DELETE CASCADE
 );
 
+/* creating table books_issue */
 CREATE TABLE book_issue(
 issue_dt DATE,
 accession_no INT,
@@ -57,7 +67,7 @@ FOREIGN KEY(member_id) REFERENCES members(member_id)
 ON DELETE CASCADE
 );
 
-
+/* creating table book_return */
 CREATE TABLE book_return(
 return_dt DATE,
 issue_dt DATE,
@@ -90,9 +100,10 @@ DROP FOREIGN KEY member_id_first;
 ALTER TABLE book_return
 DROP FOREIGN KEY member_id_second;
 
-
+/* drop table members */
 DROP TABLE members;
 
+/* creating table members */
 CREATE TABLE members(
 member_id INT PRIMARY KEY AUTO_INCREMENT,
 member_nm VARCHAR(20),
@@ -100,6 +111,7 @@ addressline1 VARCHAR(20),
 addressline2 VARCHAR(20),
 category CHAR);
 
+/* adding foreign key constraints */
 ALTER TABLE book_issue
 ADD CONSTRAINT member_id_first
 FOREIGN KEY (member_id)
