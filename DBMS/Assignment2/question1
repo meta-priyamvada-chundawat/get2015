@@ -1,0 +1,26 @@
+use database_management;
+-- Query to find the columns of table members
+SELECT * FROM members;
+-- Query to find the member id,member name,category of table members
+SELECT member_id,member_nm, category FROM members;
+-- Query to find the member id,member name,category of table members whose category = "f"
+SELECT member_id,member_nm, category FROM members WHERE category = 'f';
+-- Query to find distinct category of table members
+SELECT DISTINCT(category) FROM members;
+-- Query to find the member id,member name of table members order by desc
+SELECT member_id,member_nm FROM members ORDER BY member_nm DESC;
+-- Query to find the title name,publisher name, subject id of table
+SELECT title_nm,e.publisher_nm, subject_id FROM titles t , publishers e WHERE t.publisher_id=e.publisher_id;
+-- Query to find the count of members of category
+SELECT category,COUNT(*) From members GROUP BY category;
+-- Query to find name of members to which amit belongs
+SELECT m1.member_nm FROM members AS m1 JOIN members AS m2 ON m1.category = m2.category WHERE m2.member_nm ="Pragati";
+-- Query to find the status of return book and if returned  then place blank
+SELECT issue_dt,member_id,e.accession_no, IF( status = 0 , return_dt," " ) as Book_Returned FROM books e,book_return f WHERE e. accession_no = f.accession_no;
+
+
+-- Assignment 2
+-- Query to  display results in ascending order of issue date and within issue date in ascending order of members name.
+
+SELECT f.issue_dt, f.member_id,f.accession_no,IF( e.status =0 , return_dt," " ) as Book_Returned from books e,book_return f, members m WHERE ((e.accession_no = f.accession_no )&&(f.member_id=m.member_id)) ORDER BY issue_dt asc , member_nm asc;
+
