@@ -1,0 +1,15 @@
+// Class to create a vehicle type according to the user
+public class VehicleHelper {
+	// Static function to create car or bike type object
+	public static Vehicle createVehicle(String vehicleType, String make,
+			String model) {
+		if (vehicleType.equalsIgnoreCase("Car")) {
+			Car car = new Car(make, model);
+			return car;
+		} else {
+			Bike bike = new Bike(make, model);
+			return bike;
+		}
+	}
+
+}

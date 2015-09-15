@@ -1,0 +1,8 @@
+// Class to print vehicle details
+public class VehiclePrinter {
+	// Display result
+	public static String printVehicleSpecification(Vehicle vehicle) {
+		// returning the object values
+		return vehicle.toString();
+	}
+}
