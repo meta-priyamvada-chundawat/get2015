@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<style>
+label {
+	float: left;
+	width: 250px;
+	text-align: right;
+	margin-right: 0.5em;
+}
+
+div.padding-heading {
+	padding-left: 2cm;
+}
+
+.timesheet-daily-checkbox {
+	margin-right: 10px;
+	padding-right: 10px;
+	display: inline-block;
+	overflow: hidden
+}
+</style>
+<body>
+	<form action="action_page.php">
+		<div class="padding-heading">
+			<b><left>
+				<font size="5">Create your account</font></left></b></br>
+			</br>
+		</div>
+		<div>
+			<font color="red">* </font><label>E-mail address</label><input
+				type="text" name="E-mail address" value="Enter your E-mail ID"
+				maxlength=50 required></br>
+			</br> <font color="red">* </font><label>Password</label><input
+				type="password" name="Password" maxlength=10 required></br>
+			</br> <font color="red">* </font><label>Confirm Password</label><input
+				type="password" name="Confirm Password" maxlength=10 required>
+			</center>
+			<br>
+		</div>
+		<hr>
+		<div class="padding-heading">
+			<b><left>
+				<font size="5">Contact Details </font></b>This is where recruiters and
+			employees will contact you for jobs.
+			</left>
+		</div>
+		<div>
+			<font color="red">* </font><label>Your Name</label><input type="text"
+				name="Your Name" value="Enter your Name" maxlength=50></br>
+			</br> <font color="red">* </font><label>Current location</label><select
+				name="location">
+				<option>--Select</option>
+				<option>Delhi</option>
+				<option>Mumbai</option>
+				<option>Kolkatta</option>
+				<option>Chennai</option>
+				<option>Jaipur</option>
+				<input type="checkbox" name="nationality" value="Not Indian" /> Not
+				from India
+				</br>
+			</br>
+				<font color="red">* </font>
+			<label>Mobile No.</label>
+			<input type="text" name="Mobile No." value="Enter mobile number"
+				maxlength=10 required>
+			</br>
+			</br>
+				<div class="padding-heading">
+					If you do not have a mobile, enter<a
+						href="http://www.w3schools.com/tags/tag_center.asp"> Landline
+						No </a></br>
+					</br>
+				</div>
+		</div>
+		<hr>
+		<div class="padding-heading">
+			<b><left>
+				<font size="5">Current Professional Details </font></left></b></br>
+			</br>
+		</div>
+		<div>
+			<font color="red">* </font><label>Total Experience</label><select
+				name="experience">
+				<option>--Select</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select> Years <select months="experience">
+				<option>--Select</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+			</select> Months</br>
+			</br> <font color="red">* </font><label>Current Industry</label><select
+				name="current_industry">
+				<option>--Select</option>
+				<option>IT</option>
+				<option>Mobile Technology</option>
+				<option>Big data</option>
+				<option>Testing</option>
+				<option>Networking</option>
+			</select></br>
+			</br> <font color="red">* </font><label>Functional Area</label><select
+				name="functional_area">
+				<option>--Select</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select></br>
+			</br>
+			<div class="padding-heading">
+				<a href="http://www.w3schools.com/tags/tag_center.asp"> What is
+					my functional area and Industry</a></br>
+				</br>
+			</div>
+			<label>Key Skills</label>
+			<textarea rows="3" cols="60">Please enter your area of expertise/specialization</textarea>
+			</br>
+			</br> <font color="red">* </font><label>Resume Headline</label>
+			<textarea rows="1" cols="60">Describe your professional background in one line</textarea>
+			</br>
+			</br>
+		</div>
+		<hr>
+		<div class="padding-heading">
+			<b><font size="5">Education Details</font></b> Please list your areas
+			of study</br>
+			</br>
+		</div>
+		<div>
+			<font color="red">* </font><label>Basic Graduation</label><select
+				name="basic_graduation">
+				<option>--Select</option>
+				<option>B.Tech</option>
+				<option>B.A</option>
+				<option>BBA</option>
+				<option>B.Sc</option>
+				<option>B.Com</option>
+			</select></br>
+			</br> <font color="red">* </font><label>Post Graduation</label><select
+				name="post_graduation">
+				<option>--Select</option>
+				<option>yes</option>
+				<option>no</option>
+			</select></br>
+			</br> <font color="red">* </font><label>Doctrate Phd</label><select
+				name="post_graduation">
+				<option>--Select</option>
+				<option>yes</option>
+				<option>no</option>
+			</select></br>
+			</br>
+		</div>
+		<hr>
+		<div class="padding-heading">
+			<b><font size="5">Upload resume </font></b> Please upload a detailed
+			resume
+		</div>
+		</br>
+		</br>
+		<div>
+			<font color="red">* </font><label>Attach resume</label>
+			<button type="upload" name="Upload" required>Upload resume</button>
+			<br>
+			<div class="padding-heading">
+				<font size="2">Supported format doc,docx, pdf, rtf</font></br>
+				</br>
+			</div>
+		</div>
+		<hr>
+		<div class="padding-heading">
+			<b><font size="5">Mailer and privacy settings</font></b></br>
+			</br>
+		</div>
+		<div>
+			<label><input type="checkbox" name="settings"
+				value="job_alerts" class="timesheet-daily-checkbox" />Job_Alerts</label> <label><input
+				type="checkbox" name="settings" value="important_notifications"
+				class="timesheet-daily-checkbox" />Important Notifications</label></br>
+			</br> <label><input type="checkbox" name="settings"
+				value="Naukari_Fast_Forward_Details"
+				class="timesheet-daily-checkbox" /> Naukari Fast_Forward Details</label> <label><input
+				type="checkbox" name="settings" value="communication_from_clients"
+				class="timesheet-daily-checkbox" /> Communication from clients</label></br>
+			<br> <input type="checkbox" name="settings"
+				value="communication_from_clients" class="timesheet-daily-checkbox" />
+			I have read and understood and agree to <a
+				href="http://www.w3schools.com/tags/tag_center.asp"> Terms and
+				Conditions</a></br>
+			</br>
+		</div>
+		<hr>
+		<div>
+			<center>
+				<button type="submit" name="create account" width="500%"
+					height="500%">Create my account</button>
+			</center>
+		</div>
+		<hr>
+	</form>
+</body>
+</html>
