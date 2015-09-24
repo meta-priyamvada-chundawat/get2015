@@ -1,0 +1,95 @@
+header {
+	font-family:"Comic Sans MS";
+	color:#CD69C9;
+	font-size:25px;
+	font-weight:bold;
+	text-align:center;
+	line-height:40px;
+	padding-bottom:20px;
+}
+
+article h3 {
+	font-family:"Comic Sans MS";
+}
+
+article p {
+	font-family:"Verdana";
+	font-size:14px;
+}
+
+section h3 {
+	font-family:"Comic Sans MS";
+}
+
+section p {
+	font-family:"Verdana";
+	font-size:14px;
+}
+
+nav {
+	color:#EE00EE;
+	font-family:"Arial Black";
+	font-size:18px;
+	text-align:center;
+	padding-bottom:10px;
+	text-decoration:none;
+}
+
+nav :hover {
+	font-size:18px;
+	color:#CD96CD;
+}
+
+.space {
+	padding-left:10px;
+}
+
+.container {
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+}
+
+article
+{
+	text-align:left;
+	border-style:dotted;
+	border-color:#FF007F;
+	border-width:4px;
+	padding-left:5px;
+}
+
+main
+{
+	background-color:#EED2EE;
+	border-style:solid;
+	border-color:#DB70DB;
+	border-width:5px;
+}
+
+main p {
+	font-style:italic;
+	text-align:center;
+}
+
+figure {
+	text-align:center;
+}
+
+figcaption {
+	text-align:center;
+	font-family:"Verdana";
+	font-size:12px;
+	font-style:italic;
+	font-weight:bold;
+	padding-top:8px;
+	padding-bottom:10px;
+}
+
+section
+{
+	border-style:dashed;
+	border-color:#7F00FF;
+	border-width:5px;
+	padding-left:5px;
+}
