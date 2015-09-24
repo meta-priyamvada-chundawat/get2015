@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script>
+		function namevalidate(e) {
+		if (e.which) {
+			keynum = e.which;
+		}
+		keychar = String.fromCharCode(keynum);
+		numcheck = /\d/;
+		return !numcheck.test(keychar);
+		}
+		
+		function validateComplete() {
+			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+			var letters = /^[A-Za-z]+$/;  
+			var address = document.myForm.email.value;
+			var inputtxt=document.myForm.location.value;
+				if (reg.test(address) == false) {
+					alert("Invalid Email Address");
+					document.getElementById('email').value = "";
+					document.myForm.email.focus();
+					return false;
+				}else if (!inputtxt.match(letters)) {
+					alert("Enter valid location");  
+					document.myForm.location.focus();
+				return false;
+				}
+			return true;
+		}
+		</script>
+	</head>
+	<body>
+		<form name="myForm"action="" onSubmit="return validateComplete();">
+			<header>
+				Feedback form
+			</header>
+			<main>
+				<div class="space"><label>Name</label><input type="text" name="name" id="name" placeholder="Full Name"  autofocus required onkeypress="return namevalidate(event);"/></div>
+				<div class="space"><label for="email">Email</label>
+				<input type="email" name="email" id="email" value="" placeholder="Email" required autofocus/>
+				<div class="space"><label>Date of Birth</label><input id="dob" name="dob" type="date" required autofocus/></div>
+				<div class="space"><label for="location">Location</label>
+				<input type="text" name="location" id="location" list="cities" placeholder="Location" autofocus autocomplete />
+				<datalist id="cities">
+					<option value="Delhi">
+					<option value="Mumbai">
+					<option value="Bangalore">
+					<option value="Chennai">
+					<option value="Pune">
+					<option value="Jaipur">
+					<option value="Kolkatta">
+					<option value="Ahmedabad">
+				</datalist></div>
+				<div class="space"><label for="rating">Your rating</label>
+				<input id="rating" name="rating" type="range" min="1" max="5" value="0" autofocus/></div>
+				<input type="submit" name="Confirm">
+			</main>
+		</form>
+	</body>
+</html>
