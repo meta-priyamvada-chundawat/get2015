@@ -1,0 +1,80 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Registration Form</title>
+
+<link rel="stylesheet" href="StyleSheet.css" />
+<script type="text/javascript" src="JavaScript.js"></script>
+</head>
+<body>
+		<header>
+			Registration
+		</header>
+		<div class="main">
+			<form action="RegistrationForm" class="register">
+
+			<article>
+				First Name :
+				</br>
+				</br>
+				Last Name :
+				</br>
+				</br>
+				Password:
+				</br>
+				</br>
+				Re-enter Password
+				</br>
+				</br>
+				Age:
+				</br>
+				</br>
+				State:
+				</br>
+				</br>
+				City:
+				</br>
+				</br>
+				AddressLine1:
+				</br>
+				</br>
+		    </article>
+			<section>
+				<input type="text" name="first_name" id="first_name"  placeholder="First Name"/>
+				</br></br>
+				<input type="text" name="last_name" id="last_name"  placeholder="lastName"/>
+				</br></br>
+				<input type="password" name="password" id="password"  placeholder="Enter Password"/>
+				</br></br>
+				<input type="password" name="re_password" id="re_password"  placeholder="re-enter password"/>
+				</br></br>
+				<input type="text" name="age" id="age"  placeholder="enter age"/>
+				</br></br>
+				 <select id="stateCombo" onchange='stateComboChange();'>
+				<option value='0' title='Rajasthan'>Rajasthan</option>
+				<option value='1' title='MP'>MP</option>
+				<option value='2' title='UP'>UP</option>
+				<option value='3' title='Maharashtra'>Maharashtra</option>
+				</select>
+				
+				</br><br>
+				<select id="cityCombo" onchange='cityComboChange();'>
+				<option value='0' title='Jaipur'>Jaipur</option>
+				</select>
+				
+				</br></br>
+				<input type="text" name="address" id="address" placeholder="enter address"/>
+				
+		  </section>
+		 <div class="submit">
+			<input id="submit_btn"  type="submit" name="submit" value="submit"/>
+		 </div>
+			</form>
+		</div>
+	</body>
+</html>
+
+
+
+
+
