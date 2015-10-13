@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CarDekho</title>
+		<meta-charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="styleHome.css">
+		<script>
+			window.history.forward();
+				function query()
+					{
+					var i=document.URL.indexOf('?');
+					var p=[];
+					if(i!=-1)
+					{
+					var p1=document.URL.substring(i+1,document.URL.length).split('&');
+					var nm=[];
+					for(var i=0;i<p1.length;i++)
+					{
+					nm=p1[i].split('=');
+					p[nm[0]]=nm[1];
+					}
+
+					}
+					return p;
+					}
+		</script>
+	</head>
+	<body>
+	
+<header>
+<br/>
+		<span id="logo">Car Dekho</span>
+		<div id="user">
+		<script>
+					p=query();
+					pemail=p["email"];
+					document.write("<label>"+pemail+"</label>");
+		</script>
+			
+			<a href="login.html">LOGOUT !!</a>
+		</div>
+</header>
+	<nav>
+		<a href="home.html">Home</a>
+		<span class="space"><a href="about.html">About Us</a></span>
+		<span class="space"><a href="contact.html">Contact Us</a></span>
+	</nav>
+	
+	<div class="link">
+	<script>
+	var newUrl = document.getElementById('ahref').href;
+    newUrl = newUrl.replace("pemail", pemail);
+    document.getElementById('ahref').href = newUrl;
+	</script>
+		<span class="space"><a href="addCar.html?email=pemail" id="ahref">Add New Car</a></span>
+	
+		<span class="space"><a href="searchCar.html?email="+email  id="ahref">Search Car</a></span>
+		<span class="space"><a href="EditCar.html?email="+email  id="ahref">Update Car Details</a></span>
+	</div>
+		<div class="offer_list clearfix">
+		
+			<div class="offer_item clearfix">
+					<div class="offer_aside">
+					<h2>Latest Cars</h2>
+					</div>
+				<div class="offer_aside">
+					<h2>Mercedes-Benz ML 350 BlueTEC 4MATIC 7G</h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, Used vehicle, Automatic transmission, Diesel, 190 kW (258 PS), Fuel consumption combined: 6.8 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$32.690</div>
+						<span class="offer_miliage">55,689 KM</span>
+						<span class="offer_regist">08/2011</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><a href="offers-details.html"><img src="images/prod_img_01.jpg" alt=""></a></div>
+			</div>
+			
+			<div class="offer_item clearfix">
+				
+				<div class="offer_aside">
+					<h2>Porsche CAYENNE S DIESEL V8 4.2</h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$56.300</div>
+						<span class="offer_miliage">237,391 KM</span>
+						<span class="offer_regist">12/2012</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><a href="offers-details.html"><img src="images/prod_img_02.jpg" alt=""></a></div>
+			</div>
+			
+			<div class="offer_item clearfix">
+				
+				<div class="offer_aside">
+					<h2>Infiniti FX 37 AWD Aut. S Premium</h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$47.000</div>
+						<span class="offer_miliage">27,391 KM</span>
+						<span class="offer_regist">08/2010</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><a href="offers-details.html"><img src="images/prod_img_03.jpg" alt=""></a></div>
+			</div>
+			
+			<div class="offer_item clearfix">
+				
+				<div class="offer_aside">
+					<h2>Volvo XC60 D5 AWD Aut. RE-Design</h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$26.750</div>
+						<span class="offer_miliage">50,584 KM</span>
+						<span class="offer_regist">05/2011</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><a href="offers-details.html"><img src="images/prod_img_04.jpg" alt=""></a></div>
+			</div>
+			
+			<div class="offer_item clearfix">
+				
+				<div class="offer_aside">
+					<h2>BMW X5 Adaptive Drive Head-Up Display</h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$33.300</div>
+						<span class="offer_miliage">15,785 KM</span>
+						<span class="offer_regist">10/2012</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><a href="offers-details.html"><img src="images/prod_img_05.jpg" alt=""></a></div>
+			</div>
+		
+		</div>
+		<!--/ offers list -->
+		</body>
+	</html>

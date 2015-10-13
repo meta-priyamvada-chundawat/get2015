@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+	<head>
+		<title>LoginMenu</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="scripts/scriptCreate.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="styleHome.css">
+		<script>
+			window.history.forward();
+				function query()
+					{
+					var i=document.URL.indexOf('?');
+					var p=[];
+					if(i!=-1)
+					{
+					var p1=document.URL.substring(i+1,document.URL.length).split('&');
+					var nm=[];
+					for(var i=0;i<p1.length;i++)
+					{
+					nm=p1[i].split('=');
+					p[nm[0]]=nm[1];
+					}
+
+					}
+					return p;
+					}
+		</script>
+	</head>
+
+	<body>
+		<header>
+		<br/>
+		<span id="logo">Car Dekho</span>
+		<div id="user">
+		<script>
+					p=query();
+					email=p["email"];
+					document.write("<label>"+email+"</label>");
+		</script>
+			
+			<a href="login.html">LOGOUT !!</a>
+		</div>
+</header>
+	<nav>
+		<a href="home.html">Home</a>
+		<span class="space"><a href="about.html">About Us</a></span>
+		<span class="space"><a href="contact.html">Contact Us</a></span>
+	</nav>
+	
+	<div class="link">
+		<span class="space"><a href="addCar.html?email="+email >Add New Car</a></span>
+		<span class="space"><a href="searchCar.html?email="+email  >Search Car</a></span>
+		<span class="space"><a href="EditCar.html?email="+email  >Update Car Details</a></span>
+	</div>
+	   <div class="content">
+		<h2>Add New Car</h2>
+			<div class="details"> 
+			<br/><br/>
+          <form  action="LoginMenu.html" >
+		  <div class="spaceNew">
+          	<select required id='makeCombo' onchange='makeComboChange();'>
+					
+						<option value='' title='-select one-'>-Company-</option>
+						<option value='0' title='Audi'>Audi</option>
+						<option value='1' title='Ford'>Ford</option>
+						<option value='2' title='Honda'>Honda</option>
+					</select>
+		</div>
+		<br/><br/><br/><br/>
+ <div class="spaceNew">
+					<select required id='modelCombo' onchange='modelComboChange();'>
+						<option value='' title='-select company first-'>-select company first-</option>
+					</select>
+			</div><br/><br/><br/><br/>
+            <div class="spaceNew">  <input name="text2" type="text" id="EngineInCC" required placeholder="EngineInCC" ></div>
+            <br/><br/><br/><br/>
+             <div class="spaceNew"> <input name="text2" type="text"  id="Milage" required placeholder="Milage" ></div>
+         <br/><br/><br/><br/>
+              <div class="spaceNew"><input name="text2" type="text"  id="Price" required placeholder="Price" ></div><br/><br/>
+            <div class="submit-design">
+            <div class="spaceNew"><button name="Submit" onclick="return validate(1);">Edit Car</button></div>
+			</div><br/><br/>
+          </form>
+    </div>
+	</div>
+	</body>
+</html>
+
