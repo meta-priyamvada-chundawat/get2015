@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<title>CarDekho</title>
+		<meta-charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="styleHome.css">
+			<script type="text/javascript" src="scripts/scriptMain.js"></script>
+				<script type="text/javascript" src="scripts/scriptSearch.js"></script>
+				<script>
+			window.history.forward();
+			</script>
+	</head>
+	<body>
+<!-- offers list -->
+<header>
+<br/>
+		<span id="logo">Car Dekho</span>
+		<div id="user">
+			<a href="login.html">LOGOUT !!</a>
+		</div>
+</header>
+	<nav>
+		<a href="home.html">Home</a>
+		<span class="space"><a href="about.html">About Us</a></span>
+		<span class="space"><a href="contact.html">Contact Us</a></span>
+	</nav>
+	
+	<div class="link">
+<span class="space"><a href="addCar.html?email="+email >Add New Car</a></span>
+		<span class="space"><a href="searchCar.html?email="+email  >Search Car</a></span>
+		<span class="space"><a href="EditCar.html?email="+email  >Update Car Details</a></span>
+	</div>
+	
+	<div class="offer_list clearfix" id="offer_list">
+		
+			<div class="offer_item clearfix" id="0">
+				
+				<div class="offer_aside">
+					
+					<h2>Search Car</h2></br>
+					<form name="Search"  id="Search">
+					<select id='makeCombo' onchange='makeComboChange();'>
+					
+						<option value='-1' title='-select one-'>-Company-</option>
+						<option value='0' title='Audi'>Audi</option>
+						<option value='1' title='Ford'>Ford</option>
+						<option value='2' title='Honda'>Honda</option>
+					</select>
+ <br/><br/>
+					<select id='modelCombo' onchange='modelComboChange();'>
+						<option value='-1' title='-select company first-'>-select company first-</option>
+					</select>
+					<br/><br/>
+					<input type="button" onClick="return submitSearch();" id="submitCar" value="View"/>
+					</form>
+ 
+					<p>&nbsp;</p>
+					</div>
+		</div>
+		</div>
+		
+		
+		<hr>
+		<div class="offer_list clearfix" id="offer_list">
+		
+			<div class="offer_item clearfix" id="0">
+				
+				<div class="offer_aside">
+					<h2><a href="#">Audi-Q3 ML 350 Automatic 7G</a></h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, Used vehicle, Automatic transmission, Diesel, 190 kW (258 PS), Fuel consumption combined: 6.8 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$32.690</div>
+						<span class="offer_miliage">50 KMPL</span>
+						<span class="offer_regist">10/2015</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><img src="images/prod_img_01.jpg" alt=""></div>
+			</div>
+			
+			<div class="offer_item clearfix" id="1">
+				
+				<div class="offer_aside">
+					<h2><a href="#">Audi-A7 S DIESEL V8 4.2</a></h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$56.300</div>
+						<span class="offer_miliage">60 KMPL</span>
+						<span class="offer_regist">1/2015</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><img src="images/prod_img_02.jpg" alt=""></div>
+			</div>
+			
+			<div class="offer_item clearfix" id="2">
+				
+				<div class="offer_aside">
+					<h2><a href="#">FORD FIESTA AWD Aut. S Premium</a></h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$47.000</div>
+						<span class="offer_miliage">30KMPL</span>
+						<span class="offer_regist">08/2014</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><img src="images/prod_img_03.jpg" alt=""></div>
+			</div>
+			
+			<div class="offer_item clearfix" id="3">
+				
+				<div class="offer_aside">
+					<h2><a href="#">Ford Eco-Sport D5 AWD Aut. RE-Design</a></h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$26.750</div>
+						<span class="offer_miliage">35 KMPL</span>
+						<span class="offer_regist">05/2014</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><img src="images/prod_img_04.jpg" alt=""></div>
+			</div>
+			
+			<div class="offer_item clearfix" id="4">
+				
+				<div class="offer_aside">
+					<h2><a href="#">Honda-Juzz X5 Adaptive Drive Head-Up Display</a></h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$33.300</div>
+						<span class="offer_miliage">45 KMPL</span>
+						<span class="offer_regist">10/2013</span>                            
+					</div>
+				</div>
+				<div class="offer_image"><img src="images/prod_img_05.jpg" alt=""></div>
+			</div>
+			
+			<div class="offer_item clearfix" id="5">
+			
+				<div class="offer_aside">
+					<h2><a href="#">Honda Vezel Sport SDV6 HSE</a></h2>
+					<div class="offer_descr">
+						<p>Off-road Vehicle/Pickup Truck, New vehicle, Automatic transmission, Diesel, 281 kW (382 PS), Fuel consumption combined: 14.3 l/100 km</p>
+					</div>
+					<div class="offer_data">
+						<div class="offer_price">$44.300</div>
+						<span class="offer_miliage">55 KMPL</span>
+						<span class="offer_regist">07/2013</span>                            
+					</div>
+				</div>
+					<div class="offer_image"><a href="offers-details.html"><img src="images/prod_img_06.jpg" alt=""></a></div>
+			</div>
+			
+		</div>
+		</body>
+	</html>
