@@ -1,0 +1,4 @@
+Oct 21, 2015 5:32:56 PM Assignment1.Singleton logException
+INFO: My first log
+Oct 21, 2015 5:32:57 PM Assignment1.Singleton logException
+INFO: Threw a ArithmeticException in LoggerFile::full stack trace follows:/ by zero
