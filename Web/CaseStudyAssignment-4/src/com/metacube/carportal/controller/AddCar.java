@@ -41,10 +41,7 @@ import com.metacube.carportal.dbconfig.ConnectionFactory;
 import com.metacube.carportal.exception.CarDekhoException;
 import com.metacube.carportal.model.Car;
 
-/**
- * @Priyamvada
- * Servlet implementation class AddCar
- */
+
 @WebServlet("/add-car")
 public class AddCar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
