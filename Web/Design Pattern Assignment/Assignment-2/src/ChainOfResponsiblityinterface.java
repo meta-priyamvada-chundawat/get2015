@@ -3,14 +3,14 @@ public class ChainOfResponsiblityinterface {
 
 	public static void main(String[] args) 
 	{
-		Approver anurag = new Mentor();
-	      Approver anand = new SeniorMentor();
+		Approver priyamvada = new Mentor();
+	      Approver amit = new SeniorMentor();
 	      Approver abhishek = new HrManager();
 	 
-	      anurag.SetSuccessor(anand);
-	      anand.SetSuccessor(abhishek);
+	      priyamvada.SetSuccessor(anand);
+	      amit.SetSuccessor(abhishek);
 
-	    anurag.ProcessRequest(1);
+	    priyamvada.ProcessRequest(5);
 
 
 	}
