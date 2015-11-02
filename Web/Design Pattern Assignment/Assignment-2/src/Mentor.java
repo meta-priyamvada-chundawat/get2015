@@ -5,9 +5,9 @@ public class Mentor extends Approver
 	@Override
 	public void ProcessRequest(int noOfDays) 
 	{
-		 if (noOfDays <= 1)
+		 if (noOfDays <= 5)
 	      {
-	        System.out.println("1 Day Leave GRanted by mentor");
+	        System.out.println("Leave GRanted by mentor");
 	      }
 	      else 
 	      {
