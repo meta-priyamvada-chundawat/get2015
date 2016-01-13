@@ -1,0 +1,12 @@
+1) Select s.Sex__c, s.Name, s.DOB__c From Student__c s where s.LastName__c LIKE 'S%'
+2) Select s.SystemModstamp, s.Sex__c, s.Name, s.Married__c, s.LastViewedDate, s.LastReferencedDate, s.LastName__c, s.LastModifiedDate, s.LastModifiedById, s.IsDeleted, s.Id, s.FirstName__c, s.DOB__c, s.CreatedDate, s.CreatedById, s.Class__c, s.Age__c 
+   From Student__c s where  s.Class__r.Name LIKE 'X%'
+3) Select s.SystemModstamp, s.Sex__c, s.Name, s.Married__c, s.LastViewedDate, s.LastReferencedDate, s.LastName__c, s.LastModifiedDate, s.LastModifiedById, s.IsDeleted, s.Id, 
+   s.FirstName__c, s.DOB__c, s.CreatedDate, s.CreatedById, s.Class__r.Name, s.Age__c From Student__c s
+4) Select c.Name, (Select FirstName__c, LastName__c From Students__r) From Class__c  c
+5) SELECT FirstName__c From Student__c Where class__r.ClassTeacher__r.Name  like 'S%' 
+6) SELECT FirstName__c From Student__c Where CALENDAR_YEAR(dob__c)>2000
+7) Select NAME from Lead Where LastModifiedDate = THIS_MONTH
+8) Select c.Name, (Select FirstName__c, LastName__c From Students__r where FirstName__c like 'S%' ) From Class__c c
+9) SELECT Name from contact where Subjects__c includes('Hindi;English')
+10) Select s.email__c, s.SystemModstamp, s.Spouse_Name__c, s.Sex__c, s.Name, s.Married__c, s.LastViewedDate, s.LastReferencedDate, s.LastName__c, s.LastModifiedDate, s.LastModifiedById, s.IsDeleted, s.Id, s.First_Name__c, s.DOB__c, s.CreatedDate, s.CreatedById, s.Class__c, s.Age__c From Student__c s where Class__r.ClassTeacher__r.Subjects__c INCLUDES ('English;Hindi')
