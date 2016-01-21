@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>JSonController</members>
+        <members>ManageClassController</members>
+        <members>PaginationController</members>
+        <members>PdfController</members>
+        <members>SearchController</members>
+        <members>myControllerExtension</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>AccountFilter</members>
+        <members>AccountJsonFormat</members>
+        <members>ClassCreation</members>
+        <members>ClassRecordVF</members>
+        <members>GeneratePDF</members>
+        <members>PaginationVF</members>
+        <members>RecordTypeTeacher</members>
+        <members>StudentCreation</members>
+        <members>opportunityPopulate</members>
+        <name>ApexPage</name>
+    </types>
+    <version>35.0</version>
+</Package>

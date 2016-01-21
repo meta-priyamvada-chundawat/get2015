@@ -1,0 +1,16 @@
+<apex:page standardController="Student__c" renderAs="pdf">
+   <apex:form >
+    <apex:pageBlock title="StudentRecord">
+       <apex:pageBlockSection >       
+     		Name: {! Student__c.Name}<br/>
+     		Last Name:  {! Student__c.LastName__c}<br/>
+     		DOB :  {! Student__c.DOB__c}<br/>
+     		Class : {! Student__c.Class__c}<br/>
+     		Email : {! Student__c.email__c}<br/>
+     		Sex : {! Student__c.Sex__c}<br/>
+     		Spouse Name: {! Student__c.SpouseName__c}<br/>
+     		Marital Status : {! Student__c.Married__c}              
+  </apex:pageBlockSection>
+    </apex:pageBlock>  
+   </apex:form>     
+</apex:page>

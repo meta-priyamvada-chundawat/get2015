@@ -1,0 +1,25 @@
+<apex:page standardController="Account" extensions="SearchController">
+    <apex:form >
+        <apex:pageBlock title="Search with filters for Account">
+            <apex:pageMessages />
+            <apex:pageBlockSection >
+                 <apex:inputText label="BillingCity" value="{!BillingCitystring}"/>
+                 <apex:inputText label="BillingState" value="{!BillingStatestring}"/>
+                 <apex:inputText label="BillingCountry" value="{!BillingCountrystring}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Search with AND" action="{!searchAnd}"/>
+                <apex:commandButton value="Search with OR" action="{!searchOr}"/>
+                <apex:commandButton value="Clear" action="{!clear}"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel rendered="{!IF(accountList!=null, true, false)}">
+              <apex:pageBlocktable value="{!accountList}" var="records"> 
+                  <apex:column value="{!records.name}" headerValue="Name"/>
+                  <apex:column value="{!records.BillingCity}" headerValue="Billing City" />
+                  <apex:column value="{!records.BillingState}" headerValue="Billing State" />
+                  <apex:column value="{!records.BillingCountry}" headerValue="Billing Country" />
+              </apex:pageBlocktable>
+          </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
