@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ClassTriggerOnDelete</members>
+        <members>HindiClassTeacherTrigger</members>
+        <members>OnCloseOpportunityTrigger</members>
+        <members>ResetOpportunityTrigger</members>
+        <members>checkMaxLimitOfStudent</members>
+        <members>updateMyCountTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <version>35.0</version>
+</Package>
