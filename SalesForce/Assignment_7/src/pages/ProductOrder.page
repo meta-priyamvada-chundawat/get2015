@@ -1,0 +1,72 @@
+<apex:page standardController="PurchaseOrder__c" extensions="PurchaseOrderController">       
+    <apex:form >
+        <apex:pageBlock id="demo" >
+            <apex:sectionHeader title="Retail Store" description="Partner Account: {!$User.FirstName}">                             
+            </apex:sectionHeader>                       
+              <apex:pageBlockSection id="PurchaseOrders" title="Purchase Orders">
+           <apex:outputPanel id="OrderDetails" title="Order">
+                    <apex:outputPanel layout="block" rendered="{!OrderDisplayPopUp}">
+                        <apex:pageblockTable id="ListOrder" value="{!ListOfOrder}" var="order">
+                            <apex:column value="{!order.id}"/>
+                            <apex:column value="{!order.Name}"/>
+                            <apex:column value="{!order.Order_Status__c}"/>
+                            <apex:column value="{!order.Total_Payment__c}"/>
+                             </apex:pageblockTable>
+               </apex:outputPanel>
+            </apex:outputPanel>
+            </apex:pageBlockSection>
+         
+             <apex:pageBlockSection id="PurchaseOrderLineItems" title="View your cart">
+                    <apex:outputPanel layout="block" rendered="{!purchaseOrderLineItemsdisplayPopUp}">
+                        <apex:pageBlockTable id="productsToPurchase" value="{!productsToPurchase}" var="product">                      
+                        	 <apex:column >
+                            <apex:commandLink value="Remove From Cart" action="{!removeFromCart}" reRender="PurchaseOrderLineItems">
+                        <apex:param name="productId" value="{!product.id}" assignTo="{!productId}"/>
+                    </apex:commandLink>
+                              </apex:column>
+                            <apex:column value="{!product.id}"/>                       
+                            <apex:column value="{!product.name}"/>
+ 						<apex:column headerValue="Quantity">     
+                            <apex:outputField value="{!product.Quantity__c}">
+                                <apex:inlineEditSupport event="ondblclick"/>
+                            </apex:outputField>
+                            </apex:column><apex:column headerValue="ESmartPack" >
+                             <apex:outputField value="{!product.ESmartPack__c}">
+                                 <apex:inlineEditSupport event="ondblclick"/></apex:outputField> </apex:column>
+                        <apex:column value="{!product.UnitPrice__c}"/>
+                           
+                             </apex:pageBlockTable>
+                        <apex:commandButton value="Pay" action="{!pay}" reRender="Information" style="float:right;"/>
+                 </apex:outputPanel>
+            </apex:pageBlockSection>
+
+               
+             <apex:pageBlockSection id="Information" title="Your Info">
+
+                    <apex:outputPanel rendered="{!informationDisplayPopUp}">
+                Name :  <apex:inputField value="{!order.Name__c}" required="true"/>
+                Address : <apex:inputField value="{!order.Address__c}" label="Address : " required="true"/>
+                Phone : <apex:inputField value="{!order.Phone__c}" label="Telephone : " required="true"/>
+                <apex:commandButton value="Confirm Order" action="{!confirm}" reRender="PurchaseOrders,Information,PurchaseOrderLineItems" style="float:right;"/>
+      
+                 </apex:outputPanel>
+                        </apex:pageBlockSection>                     
+            <apex:pageBlockSection id="Products" title="Products">            
+             	 <apex:pageblockTable value="{!productList}" var="product">
+                <apex:column value="{!product.id}"/>
+                <apex:column value="{!product.name}"/>
+                <apex:column value="{!product.price__c}"/>
+                <apex:column >
+                    <apex:outputLink value="/{!product.id}">View Details</apex:outputLink> 
+                </apex:column>
+                <apex:column >
+                    <apex:commandLink value="Add To Cart" action="{!addToCart}" reRender="PurchaseOrderLineItems">
+                        <apex:param name="productId" value="{!product.id}" assignTo="{!productId}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageblockTable>
+           
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
