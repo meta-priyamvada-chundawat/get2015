@@ -1,0 +1,103 @@
+<apex:page id="pro" standardController="PurchaseOrder__c" extensions="PurchaseOrderController">    
+    
+    <head>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+        <link href="//getbootstrap.com/examples/signin/signin.css" rel="stylesheet" media="screen"/>
+        <apex:includeScript value="{!$Resource.jQuery}"/>
+        <apex:includescript value="/soap/ajax/30.0/connection.js"></apex:includescript>
+        <script>
+        
+        function Total(e,id,u,r){
+            var q = String.fromCharCode(e.which);
+            var x =r-1; 
+            // document.getElementById("pro:theform:demo:PurchaseOrderLineItems:productsToPurchase:"+x+":qty").initialValue=q;
+               
+            //alert(document.getElementById("pro:theform:demo:PurchaseOrderLineItems:productsToPurchase:0:total").innerText);
+            var span = document.getElementById("pro:theform:demo:PurchaseOrderLineItems:productsToPurchase:"+x+":tot");
+            while( span.firstChild ) {
+                span.removeChild( span.firstChild );
+                }
+            span.appendChild( document.createTextNode(u*q) );
+            setQunt(id,q,u*q);
+            //document.getElementById("pro:theform:demo:PurchaseOrderLineItems:productsToPurchase:"+x+":total").innerText = u*q;
+        }
+        </script>
+    </head>
+    <apex:form id="theform">
+        <apex:actionFunction name="setQunt" action="{!setQuant}" reRender="PurchaseOrderLineItems">
+            <apex:param value="" name="item" assignTo="{!productIdTemp}"/>
+            <apex:param value="" name="test" assignTo="{!quty}"/>
+            <apex:param value="" name="test1" assignTo="{!total}"/>
+        </apex:actionFunction>
+        <apex:sectionHeader title="Retail Store" description="Partner Account: {!$User.FirstName}">   
+        </apex:sectionHeader>  
+        <apex:pageBlock id="demo" >   
+            <apex:pageBlockSection id="PurchaseOrders" title="Purchase Orders" showHeader="{!OrderDisplayPopUp}">
+                <apex:outputPanel layout="block" rendered="{!OrderDisplayPopUp}">
+                    <apex:pageblockTable id="ListOrder" value="{!ListOfOrder}" var="order">
+                        <apex:column value="{!order.id}"/>
+                        <apex:column value="{!order.Name}"/>
+                        <apex:column value="{!order.Order_Status__c}"/>
+                        <apex:column value="{!order.Total_Payment__c}"/>
+                    </apex:pageblockTable>
+                </apex:outputPanel>               
+            </apex:pageBlockSection>            
+            <apex:pageBlockSection id="PurchaseOrderLineItems" title="View your cart" showHeader="{!(productsToPurchase.size>0)}" columns="1">
+                 <apex:pageMessages rendered="{!MessageDisplayPopUp}"/>
+                <apex:outputPanel id="out" layout="block" rendered="{!(productsToPurchase.size>0)}">
+                    <apex:pageBlockTable id="productsToPurchase" value="{!productsToPurchase}" var="product"> 
+                        <apex:column headerValue="Remove">
+                            <apex:commandLink styleClass="glyphicon glyphicon-remove-circle" action="{!removeFromCart}" reRender="PurchaseOrderLineItems">
+                                <apex:param name="productId" value="{!product.id}" assignTo="{!productId}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:variable value="{!0}" var="rowNum"/>
+                        <apex:column value="{!product.id}"/>                       
+                        <apex:column value="{!product.name}"/>
+                        <apex:column headerValue="Quantity" id="col">     
+                            <apex:outputPanel id="o" onkeypress="Total(event,'{!product.id}','{!product.UnitPrice__c}','{!rowNum}');">
+                                <apex:outputField value="{!product.Quantity__c}" id="qty"  >
+                                    <apex:inlineEditSupport event="ondblclick"  />
+                                </apex:outputField>
+                            </apex:outputPanel>
+                        </apex:column><apex:column headerValue="ESmartPack" >
+                        <apex:outputField value="{!product.ESmartPack__c}">
+                            <apex:inlineEditSupport event="ondblclick"/></apex:outputField> </apex:column>
+                        <apex:column value="{!product.UnitPrice__c}" />                         
+                        <apex:column headerValue="Total"> 
+                            <apex:outputText id="tot" value="{!product.TotalPrice__c}"/>
+                        </apex:column> 
+                        <apex:column > <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    <apex:commandButton value="Pay" action="{!pay}" reRender="Information" style="float:right;"/>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection id="Information" title="Your Info" showHeader="{!informationDisplayPopUp}">                
+                <apex:outputPanel rendered="{!informationDisplayPopUp}">
+                    Name :  <apex:inputField value="{!order.Name__c}" required="true"/>
+                    Address : <apex:inputField value="{!order.Address__c}" label="Address : " required="true"/>
+                    Phone : <apex:inputField value="{!order.Phone__c}" label="Telephone : " required="true"/>
+                    <apex:commandButton value="Confirm Order" action="{!confirm}" reRender="PurchaseOrders,Information,PurchaseOrderLineItems" style="float:right;"/>                    
+                </apex:outputPanel>
+            </apex:pageBlockSection>                     
+            <apex:pageBlockSection id="Products" title="Products" columns="1">            
+                <apex:pageblockTable value="{!productList}" var="product">
+                    <apex:column value="{!product.id}"/>
+                    <apex:column value="{!product.name}"/>
+                    <apex:column value="{!product.price__c}"/>
+                    <apex:column headerValue="View Details">
+                        <apex:outputLink styleClass="glyphicon glyphicon-zoom-in" value="/{!product.id}"></apex:outputLink> 
+                    </apex:column>
+                    <apex:column headerValue="Add to Cart">
+                        <apex:commandLink styleClass="glyphicon glyphicon-plus" action="{!addToCart}" reRender="PurchaseOrderLineItems,msgs">  
+                            <apex:param name="productId" value="{!product.id}" assignTo="{!productId}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                </apex:pageblockTable>                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

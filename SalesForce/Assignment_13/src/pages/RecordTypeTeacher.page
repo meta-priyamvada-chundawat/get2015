@@ -1,0 +1,14 @@
+<apex:page standardController="Contact">
+     <style type="text/css">
+         p { 
+         background-color:green;
+         font-weight: bold;
+         text-align:center; 
+         }      
+    </style>
+
+        
+        <p> {!Contact.RecordType.Name}   </p>  
+          
+  
+</apex:page>

@@ -1,0 +1,32 @@
+<apex:page standardcontroller="Class__c" extensions="ManageClassController">
+     <apex:form >
+         <apex:pageMessages id="showmsg"></apex:pageMessages>
+        <apex:pageBlock title="Class" id="ajaxresult">
+            <apex:sectionHeader title="{!Class__c.name}"/>
+               <apex:outputPanel layout="block"  rendered="{!displayToEdit}">
+                    <apex:pageBlockSection columns="1">
+                        <apex:outputField value="{!Class__c.Name}" label="Name"/>
+                        <apex:outputField value="{!Class__c.Fee__c}" label="Fee"/>
+                        <apex:outputField value="{!Class__c.Board__c}" label="Board"/>   
+                        <apex:commandButton value="Edit" action="{!ShowDataToEdit}" rerender="ajaxresult">
+                            <apex:param name="idToUpdate" value="{!Class__c.id}" assignTo="{!idToUpdate}"/>
+                        </apex:commandButton>              
+                        <apex:commandButton value="Delete" action="{!deleteDetails}" rerender="ajaxresult">
+                              
+                            <apex:param name="idToUpdate" value="{!Class__c.id}" assignTo="{!idToUpdate}"/>
+                        </apex:commandButton>                  
+                    </apex:pageBlockSection>   
+            	</apex:outputPanel>
+                <apex:outputPanel >
+                    <apex:outputPanel layout="block" id="toEdit" rendered="{!displayPopUp}">
+                        <apex:pageBlockSection columns="1">
+                        <apex:inputField value="{!saveRecords.Name}" label="Name"/>
+                        <apex:inputField value="{!saveRecords.Fee__c}" label="Fee"/>
+                        <apex:inputField value="{!saveRecords.Board__c}" label="Board"/>   
+                        </apex:pageBlockSection>
+                        <apex:commandButton value="saveDetails" action="{!saveDetails}" rerender="ajaxresult"/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+         </apex:pageBlock>
+    </apex:form>
+</apex:page>

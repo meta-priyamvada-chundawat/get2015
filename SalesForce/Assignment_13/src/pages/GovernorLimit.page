@@ -1,0 +1,17 @@
+<apex:page controller="GovernerLimitController">
+    <apex:form >     
+        <apex:pageBlock id="display" >
+            <apex:pageBlockTable value="{!accList}" var="acc" rendered="{!display}" >
+                <apex:column value="{!acc.Id}"/>
+                <apex:column value="{!acc.Name}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockSection rendered="{!display}" >
+                <apex:outputText label="Number of DML run: "   value="{!DMLRunned}"/>
+                <apex:outputText label="DML limit : "   value="{!DMLLimit}"/>
+                <apex:outputText label="Percentage of queries covered : "   value="{!percent}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!updateAccount}" value="Show DML Usage On Queries" reRender="display"/></apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

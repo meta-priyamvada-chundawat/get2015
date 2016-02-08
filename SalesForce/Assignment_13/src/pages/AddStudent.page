@@ -1,0 +1,36 @@
+<apex:page standardController="Class__c">
+    <apex:includescript value="/soap/ajax/30.0/connection.js"></apex:includescript>
+    <apex:includescript value="/soap/ajax/30.0/apex.js"></apex:includescript>     
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                Name:
+                <input title="Name" id="name"/>                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Add" onclick="addStudent();" />
+            </apex:pageBlockButtons>            
+        </apex:pageBlock>
+    </apex:form>    
+    <script>
+    function addStudent(){
+        sforce.connection.sessionId = "{!$Api.Session_ID}";        
+        var newStudent = new sforce.SObject("Student__c");
+        newStudent.Name =document.getElementById('name').value; 
+        newStudent.LastName__c=newStudent.Name;
+        newStudent.Email__c='pri.chundawat@gmail.com';
+        newStudent.Class__c='{!Class__c}';
+        var result = sforce.connection.create([newStudent]);
+         
+        function success(result) {
+            if (result[0].getBoolean("success")) {
+                log("new student created with id " + result[0].id);
+                sforce.debug.log(result[0].id);
+            } else {
+                log("failed to create campaign " + result[0]);
+                sforce.debug.log(result[0]);
+            }
+        }        
+    }
+    </script>
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page standardcontroller="Class__c" extensions="ManageClassController">
+    <!-- Page Block to display the Records-->
+    <apex:form >
+        <apex:pageBlock id="result" title="classes">
+            <!-- Page block Table to display the Records-->
+            <apex:pageBlockTable value="{!Records}" var="classDetail">
+                
+                <apex:column headerValue="Class">
+    <apex:outputLink value="{!URLFOR($Page.ClassRecordExtended,null,[id=classDetail.Id])}">{!classDetail.Name}
+                </apex:outputLink> </apex:column>              
+            </apex:pageBlockTable>           
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>

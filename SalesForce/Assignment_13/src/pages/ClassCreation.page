@@ -1,0 +1,42 @@
+<apex:page standardController="Class__c">
+    <style type="text/css">
+         p { 
+       		margin-top: -10px;
+         	font-weight: bold;
+         	background-color: #F5F5DC !important;
+        	height: 30px;
+         }  
+        h { 
+         	font-weight: bold;
+         	text-size: 80px;
+        	height: 30px;
+        	line-height: 50px;
+         }   
+    </style>
+    <apex:form >
+        <apex:pageMessages />
+        <apex:sectionHeader title="{!IF(Class__c.Name==null,'New Class',Class__c.Name)}"/>  
+        <apex:pageBlock title="Class Edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" >
+                <p>
+                    Information
+                </p>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" >
+                 <apex:inputText value="{!Class__c.Name}"/>
+                 <apex:inputText value="{!Class__c.StudentName__c}"/>
+                 <apex:inputField value="{!Class__c.ClassTeacher__c}"/>
+                 <apex:inputText value="{!Class__c.Board__c}"/>
+                 <apex:inputText value="{!Class__c.Fee__c}"/>
+                 <apex:inputText value="{!Class__c.NumberOfStudents__c}"/>
+                 <apex:inputText value="{!Class__c.MaxSize__c}"/>
+                 <apex:outputField value="{!Class__c.MyCount__c}"/>
+                 <apex:inputTextarea value="{!Class__c.DetailedDescription__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

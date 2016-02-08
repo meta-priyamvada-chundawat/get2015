@@ -1,0 +1,43 @@
+<apex:page standardController="Student__c">
+    <style type="text/css">
+         p { 
+       		margin-top: -10px;
+         	font-weight: bold;
+         	background-color: #F5F5DC !important;
+        	height: 30px;
+         }  
+        h { 
+         	font-weight: bold;
+         	text-size: 80px;
+        	height: 30px;
+        	line-height: 50px;
+         }   
+    </style>
+    <apex:form >
+        <apex:pageMessages />
+        <apex:sectionHeader title="{!IF(Student__c.Name==null,'New Student',Student__c.Name)}"/>                  
+        <apex:pageBlock title="Student Edit">            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" >
+                <p>
+                    Information
+                </p>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                 <apex:inputField value="{!Student__c.Name}"/>
+                 <apex:inputField value="{!Student__c.FirstName__c}"/>
+                 <apex:inputField value="{!Student__c.LastName__c}"/>
+                 <apex:inputField value="{!Student__c.DOB__c}"/>
+                 <apex:inputField value="{!Student__c.Email__c}"/>
+                 <apex:inputField value="{!Student__c.Married__c}"/>
+                 <apex:inputField value="{!Student__c.SpouseName__c}"/>
+                 <apex:inputField value="{!Student__c.Sex__c}"/>
+                 <apex:inputField value="{!Student__c.Class__c}"/>
+                 <apex:inputField value="{!Student__c.Age__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
